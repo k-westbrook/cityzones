@@ -5,15 +5,12 @@ import { setNames } from './Store/game';
 
 function HomePage(props) {
 
-  const [mayorName, setMayorName] = useState('');
   const handleSubmit = (evt) => {
+
     evt.preventDefault();
-    props.setNames(mayorName, cityName);
+    props.setNames(evt.target.mayorName.value, evt.target.cityName.value);
     props.history.push('/explanation');
   };
-
-
-  const [cityName, setCityName] = useState('');
 
   return (
     <div>
@@ -23,17 +20,14 @@ function HomePage(props) {
         <form onSubmit={handleSubmit}>
           <div>
             <p>Mayor's Name</p>
-            <input type='text' maxLength='15' onChange={evt => setMayorName(evt.target.value)}></input>
+            <input type='text' maxLength='15' name='mayorName' ></input>
           </div>
           <div>
             <p>City name</p>
-            <input type='text' maxLength='15' onChange={evt => setCityName(evt.target.value)}></input>
+            <input type='text' maxLength='15' name='cityName'  ></input>
           </div>
           <button>Start Game</button>
         </form>
-      </div>
-      <div>
-        <p>The Mayor's Name is {mayorName}. The city's name is {cityName}</p>
       </div>
     </div>
   );

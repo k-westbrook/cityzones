@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import HomePage from './HomePage'
 import Explanation from './Explanation'
+import GameBoard from './GameBoard'
 
 
 function Routes(props) {
@@ -14,24 +15,22 @@ function Routes(props) {
 
         <Switch>
           <Route exact path="/start" component={HomePage} />
-          {cityName.isEmpty &&
-            <Route exact path='/explanation' component={Explanation} />
+          {cityName.length > 0 &&
+            <Switch>
+              < Route exact path='/explanation' component={Explanation} />
+              <Route exact path='/play' component={GameBoard} />
+            </Switch>
           }
           <Route component={HomePage} />
           />
-
     </Switch>
       </header>
     </div>
-
   )
-
-
 }
 
-
 const mapState = (state) => {
-  console.log(state)
+
   return {
     cityName: state.game.cityName,
 

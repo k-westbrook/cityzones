@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import { connect } from 'react-redux'
+import { setNames } from './Store/game';
 
 function HomePage() {
   return (
@@ -23,4 +25,10 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+const mapDispatch = (dispatch) => {
+  return {
+    setNames: (mayorName, cityName) => dispatch(setNames(mayorName, cityName))
+  }
+}
+
+export default connect(null, mapDispatch)(HomePage);

@@ -21,7 +21,7 @@ const gameObject = {
  * ACTION CREATORS
  */
 
-const setNames = (mayorName, cityName) => ({ type: SET_NAMES, mayorName, cityName })
+export const setNames = (mayorName, cityName) => ({ type: SET_NAMES, mayorName, cityName })
 
 
 

@@ -6,12 +6,17 @@ import HomePage from './HomePage'
 function Routes() {
 
   return (
-    <Switch>
+    <div className="App">
+      <header className="App-header">
 
-      <Route exact path="/start" component={HomePage} />
-      <Route component={HomePage} />
-      />
+        <Switch>
+
+          <Route exact path="/start" component={HomePage} />
+          <Route component={HomePage} />
+          />
     </Switch>
+      </header>
+    </div>
 
   )
 }

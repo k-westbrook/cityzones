@@ -3,10 +3,22 @@ import './App.css';
 
 function HomePage() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>cityzones</h1>
-      </header>
+    <div>
+      <h1>cityzones</h1>
+      <h2>Welcome to cityzones! Build a city today.</h2>
+      <div>
+        <form>
+          <div>
+            <p>Mayor's Name</p>
+            <input type='text' maxLength='15'></input>
+          </div>
+          <div>
+            <p>City name</p>
+            <input type='text' maxLength='15'></input>
+          </div>
+          <button>Start Game</button>
+        </form>
+      </div>
     </div>
   );
 }

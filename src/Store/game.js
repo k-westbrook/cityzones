@@ -84,15 +84,11 @@ export const setLotTypeClassMethod = (row, column, id, type) => async dispatch =
 export const finishTurnClassMethod = (grid) => async dispatch => {
 
   try {
-
-    let totalMonthlyIncome = grid.calculateIncome();
-    let totalSchools = grid.calculateSchools();
-    let totalHospitals = grid.calculateHospitals();
-    let newGrid = grid.calculateBuilds();
-    let newPopulationTotal = grid.calculatePopulation();
+    let turnDataObject = grid.finishTurn();
 
 
-    dispatch(finishTurn(newGrid, totalMonthlyIncome, totalHospitals, totalSchools, newPopulationTotal))
+
+    dispatch(finishTurn(turnDataObject.grid, turnDataObject.totalIncome, turnDataObject.totalHospitals, turnDataObject.totalSchools, turnDataObject.population))
 
   } catch (err) {
     console.log(err)

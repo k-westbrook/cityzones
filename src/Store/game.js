@@ -33,7 +33,7 @@ const gameObject = {
 
 export const setNames = (mayorName, cityName) => ({ type: SET_NAMES, mayorName, cityName })
 const setLotType = (row, column, newLotObject, cost, population, built, monthsToBuild) => ({ type: SET_LOT_TYPE, row, column, newLotObject, cost, population, built, monthsToBuild })
-const finishTurn = (newGrid, totalMonthlyIncome, totalHospitals, totalSchools) => ({ type: FINISH_TURN, newGrid, totalMonthlyIncome, totalHospitals, totalSchools })
+const finishTurn = (newGrid, totalMonthlyIncome, totalHospitals, totalSchools, newPopulationTotal) => ({ type: FINISH_TURN, newGrid, totalMonthlyIncome, totalHospitals, totalSchools, newPopulationTotal })
 
 /**
  * THUNK CREATORS
@@ -89,7 +89,8 @@ export const finishTurnClassMethod = (grid) => async dispatch => {
     let totalSchools = grid.calculateSchools();
     let totalHospitals = grid.calculateHospitals();
     let newGrid = grid.calculateBuilds();
-    dispatch(finishTurn(newGrid, totalMonthlyIncome, totalHospitals, totalSchools))
+    let newPopulationTotal = grid.calculatePopulation();
+    dispatch(finishTurn(newGrid, totalMonthlyIncome, totalHospitals, totalSchools, newPopulationTotal))
 
   } catch (err) {
     console.log(err)
@@ -112,8 +113,7 @@ export default function (state = gameObject, action) {
         newGrid[action.row][action.column] = action.newLotObject;
         let newGridClass = new GridClass(newGrid);
         let newBankTotal = state.bankTotal - action.cost;
-        let newPopulationTotal = state.population + action.population;
-        return { ...state, grid: newGridClass, bankTotal: newBankTotal, population: newPopulationTotal };
+        return { ...state, grid: newGridClass, bankTotal: newBankTotal };
       }
     case FINISH_TURN:
       {
@@ -122,8 +122,8 @@ export default function (state = gameObject, action) {
         let newGridObject = new GridClass(newGrid);
         let newMonth = state.month + 1;
         let newBankTotal = state.bankTotal + action.totalMonthlyIncome;
-        let newPopulationTotal = state.population;
-        if (state.population > 20 && state.population / 600 >= action.totalHospitals) {
+        let newPopulationTotal = action.newPopulationTotal;
+        if (newPopulationTotal > 20 && newPopulationTotal / 600 >= action.totalHospitals && state.month > 6) {
           newPopulationTotal -= 20;
         }
         return { ...state, grid: newGridObject, month: newMonth, bankTotal: newBankTotal, numberOfHospitals: action.totalHospitals, numberOfSchools: action.totalSchools, population: newPopulationTotal };

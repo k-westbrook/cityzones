@@ -9,6 +9,9 @@ function GameBoard(props) {
   function handleClick() {
     let currentGrid = props.grid;
     props.finishTurn(currentGrid)
+    if (props.month > 35) {
+      props.history.push('/end');
+    }
   }
   return (
     <div>

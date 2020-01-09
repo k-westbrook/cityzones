@@ -1,5 +1,6 @@
 import axios from 'axios';
 import history from '../history'
+import GridClass from '../GameClasses/GridClass'
 
 /**
  * ACTION TYPES
@@ -10,8 +11,10 @@ const SET_NAMES = 'SET_NAMES';
 /**
  * INITIAL STATE
  */
+const newGridClass = new GridClass();
+newGridClass.initializeGrid();
 const gameObject = {
-  grid: [],
+  grid: newGridClass,
   mayorName: '',
   cityName: ''
 };

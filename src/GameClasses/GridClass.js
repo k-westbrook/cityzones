@@ -103,7 +103,100 @@ export default class GridClass {
       }
 
     }
+    if (this.grid[row - 1][column]) {
+      if (this.grid[row - 1][column].lotType === 'hospital') {
+        numberHospitals++;
+      } else if (this.grid[row - 1][column].lotType === 'business') {
+        numberCommercial++;
+      }
+      else if (this.grid[row - 1][column].lotType === 'school') {
+        numberSchools++;
+      } else if (this.grid[row - 1][column].lotType === 'residential') {
+        numberResidential++;
+      } else {
+        numberEmpty++;
+      }
 
+    }
+
+    if (this.grid[row - 1][column + 1]) {
+      if (this.grid[row - 1][column + 1].lotType === 'hospital') {
+        numberHospitals++;
+      } else if (this.grid[row - 1][column + 1].lotType === 'business') {
+        numberCommercial++;
+      }
+      else if (this.grid[row - 1][column + 1].lotType === 'school') {
+        numberSchools++;
+      } else if (this.grid[row - 1][column + 1].lotType === 'residential') {
+        numberResidential++;
+      } else {
+        numberEmpty++;
+      }
+
+    }
+
+    if (this.grid[row][column + 1]) {
+      if (this.grid[row][column + 1].lotType === 'hospital') {
+        numberHospitals++;
+      } else if (this.grid[row][column + 1].lotType === 'business') {
+        numberCommercial++;
+      }
+      else if (this.grid[row][column + 1].lotType === 'school') {
+        numberSchools++;
+      } else if (this.grid[row][column + 1].lotType === 'residential') {
+        numberResidential++;
+      } else {
+        numberEmpty++;
+      }
+
+    }
+
+    if (this.grid[row + 1][column + 1]) {
+      if (this.grid[row + 1][column + 1].lotType === 'hospital') {
+        numberHospitals++;
+      } else if (this.grid[row + 1][column + 1].lotType === 'business') {
+        numberCommercial++;
+      }
+      else if (this.grid[row + 1][column + 1].lotType === 'school') {
+        numberSchools++;
+      } else if (this.grid[row + 1][column + 1].lotType === 'residential') {
+        numberResidential++;
+      } else {
+        numberEmpty++;
+      }
+
+    }
+
+    if (this.grid[row + 1][column]) {
+      if (this.grid[row + 1][column].lotType === 'hospital') {
+        numberHospitals++;
+      } else if (this.grid[row - +1][column].lotType === 'business') {
+        numberCommercial++;
+      }
+      else if (this.grid[row - +1][column].lotType === 'school') {
+        numberSchools++;
+      } else if (this.grid[row + 1][column].lotType === 'residential') {
+        numberResidential++;
+      } else {
+        numberEmpty++;
+      }
+
+    }
+    if (this.grid[row + 1][column - 1]) {
+      if (this.grid[row + 1][column + 1].lotType === 'hospital') {
+        numberHospitals++;
+      } else if (this.grid[row + 1][column - 1].lotType === 'business') {
+        numberCommercial++;
+      }
+      else if (this.grid[row + 1][column - 1].lotType === 'school') {
+        numberSchools++;
+      } else if (this.grid[row - +1][column - 1].lotType === 'residential') {
+        numberResidential++;
+      } else {
+        numberEmpty++;
+      }
+
+    }
 
 
   }

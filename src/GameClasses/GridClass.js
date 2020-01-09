@@ -90,6 +90,7 @@ export default class GridClass {
 
       }
     }
+
     return [...grid];
   }
 

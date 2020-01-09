@@ -32,7 +32,7 @@ const gameObject = {
  */
 
 export const setNames = (mayorName, cityName) => ({ type: SET_NAMES, mayorName, cityName })
-const setLotType = (row, column, newLotObject, cost, population) => ({ type: SET_LOT_TYPE, row, column, newLotObject, cost, population })
+const setLotType = (row, column, newLotObject, cost, population, built, monthsToBuild) => ({ type: SET_LOT_TYPE, row, column, newLotObject, cost, population, built, monthsToBuild })
 const finishTurn = (newGrid, totalMonthlyIncome, totalHospitals, totalSchools) => ({ type: FINISH_TURN, newGrid, totalMonthlyIncome, totalHospitals, totalSchools })
 
 /**
@@ -53,17 +53,24 @@ export const setLotTypeClassMethod = (row, column, id, type) => async dispatch =
 
     let population = 0;
     let cost = 100;
+    let monthsToBuild = 0;
+    let built = false;
 
     if (type === 'residential') {
       population = 150;
+      monthsToBuild = 2;
       cost = 50;
     } else if (type === 'school') {
       cost = 150;
+      monthsToBuild = 6;
     } else if (type === 'hospital') {
       cost = 250;
+      monthsToBuild = 8;
+    } else if (type === 'commercial') {
+      monthsToBuild = 4;
     }
 
-    let newLotObject = new LotClass(type, 1, population, id, row, column);
+    let newLotObject = new LotClass(type, 1, population, id, row, column, built, monthsToBuild);
 
     dispatch(setLotType(row, column, newLotObject, cost, population));
 
@@ -110,13 +117,16 @@ export default function (state = gameObject, action) {
       }
     case FINISH_TURN:
       {
+
+        let newGrid = action.newGrid;
+        let newGridObject = new GridClass(newGrid);
         let newMonth = state.month + 1;
         let newBankTotal = state.bankTotal + action.totalMonthlyIncome;
         let newPopulationTotal = state.population;
         if (state.population > 20 && state.population / 600 >= action.totalHospitals) {
           newPopulationTotal -= 20;
         }
-        return { ...state, grid: action.newGrid, month: newMonth, bankTotal: newBankTotal, numberOfHospitals: action.totalHospitals, numberOfSchools: action.totalSchools, population: newPopulationTotal };
+        return { ...state, grid: newGridObject, month: newMonth, bankTotal: newBankTotal, numberOfHospitals: action.totalHospitals, numberOfSchools: action.totalSchools, population: newPopulationTotal };
 
       }
     default:

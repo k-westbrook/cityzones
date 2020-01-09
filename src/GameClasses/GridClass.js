@@ -24,7 +24,24 @@ export default class GridClass {
       }
       this.grid.push(row);
     }
-
-
   }
+
+  calculateIncome() {
+    let total = 0;
+    let grid = this.grid;
+    for (let i = 0; i < 6; i++) {
+      for (let j = 0; j < 5; j++) {
+
+        if (grid[i][j].lotType === 'residential') {
+          total += 5;
+        } else if (grid[i][j].lotType === 'commercial') {
+          total += 25;
+        }
+      }
+    }
+
+    return total;
+  }
+
+
 }

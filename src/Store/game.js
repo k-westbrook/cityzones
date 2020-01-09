@@ -8,7 +8,7 @@ import LotClass from '../GameClasses/LotClass'
  */
 const SET_NAMES = 'SET_NAMES';
 const SET_LOT_TYPE = 'SET_LOT_TYPE';
-
+const FINISH_TURN = 'FINISH_TURN';
 
 /**
  * INITIAL STATE
@@ -20,7 +20,8 @@ const gameObject = {
   mayorName: '',
   cityName: '',
   bankTotal: 1000,
-  population: 0
+  population: 0,
+  month: 0
 };
 
 
@@ -30,7 +31,7 @@ const gameObject = {
 
 export const setNames = (mayorName, cityName) => ({ type: SET_NAMES, mayorName, cityName })
 const setLotType = (row, column, newLotObject, cost, population) => ({ type: SET_LOT_TYPE, row, column, newLotObject, cost, population })
-
+const finishTurn = (totalMonthlyIncome) => ({ type: FINISH_TURN, totalMonthlyIncome })
 
 /**
  * THUNK CREATORS
@@ -71,9 +72,12 @@ export const setLotTypeClassMethod = (row, column, id, type) => async dispatch =
 }
 
 
-export const finishTurnClassMethod = () => async dispatch => {
+export const finishTurnClassMethod = (grid) => async dispatch => {
 
   try {
+
+    let totalMonthlyIncome = grid.calculateIncome();
+    dispatch(finishTurn(totalMonthlyIncome))
 
   } catch (err) {
     console.log(err)
@@ -92,13 +96,19 @@ export default function (state = gameObject, action) {
       return { ...state, mayorName: action.mayorName, cityName: action.cityName }
     case SET_LOT_TYPE:
       {
-
         let newGrid = [...state.grid.grid];
         newGrid[action.row][action.column] = action.newLotObject;
         let newGridClass = new GridClass(newGrid);
         let newBankTotal = state.bankTotal - action.cost;
         let newPopulationTotal = state.population + action.population;
         return { ...state, grid: newGridClass, bankTotal: newBankTotal, population: newPopulationTotal };
+      }
+    case FINISH_TURN:
+      {
+        let newMonth = state.month + 1;
+        let newBankTotal = state.bankTotal + action.totalMonthlyIncome;
+        return { ...state, month: newMonth, bankTotal: newBankTotal };
+
       }
     default:
       return state

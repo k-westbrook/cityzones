@@ -6,16 +6,23 @@ import { finishTurnClassMethod } from './Store/game'
 function GameBoard(props) {
 
 
+  function handleClick() {
+    let currentGrid = props.grid;
+    props.finishTurn(currentGrid)
+  }
   return (
     <div>
       <div>
         <h1> Gameboard</h1>
         <div>
-          <p>Bank Account: ${props.bankTotal}
+          <p>
+            Month: {props.month}
+            <br />
+            Bank Account: ${props.bankTotal}
             <br />
             Population:{props.population}</p>
         </div>
-        <button>Finished Turn</button>
+        <button onClick={handleClick}>Finished Turn</button>
       </div>
       <Grid />
     </div>
@@ -25,14 +32,16 @@ function GameBoard(props) {
 const mapState = (state) => {
   return {
     bankTotal: state.game.bankTotal,
-    population: state.game.population
+    population: state.game.population,
+    month: state.game.month,
+    grid: state.game.grid
 
   }
 }
 
 const mapDispatch = (dispatch) => {
   return {
-    finishTurn: () => dispatch(finishTurnClassMethod())
+    finishTurn: (currentGrid) => dispatch(finishTurnClassMethod(currentGrid))
   }
 }
 

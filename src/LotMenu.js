@@ -6,7 +6,7 @@ import { setLotTypeClassMethod } from './Store/game'
 function LotMenu(props) {
 
   function handleClick(evt) {
-    props.setLotType(props.lot.row, props.lot.column, props.lot.lotId, evt.target.value)
+    props.setLotType(props.lot.row, props.lot.column, props.lot.id, evt.target.value)
   }
   return (
     <div className='dropdown-lot-menu'>

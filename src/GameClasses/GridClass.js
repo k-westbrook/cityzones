@@ -44,6 +44,8 @@ export default class GridClass {
           }
         }
         if (grid[i][j].lotType === 'residential' && grid[i][j].built) {
+          this.updatePropertyValueMultiplier(i, j)
+
           population += 150;
           totalIncome += 5;
         }
@@ -72,132 +74,141 @@ export default class GridClass {
     let numberCommercial = 0;
     let numberEmpty = 0;
 
-    if (this.grid[row][column - 1]) {
-      if (this.grid[row][column - 1].lotType === 'hospital') {
-        numberHospitals++;
-      } else if (this.grid[row][column - 1].lotType === 'business') {
-        numberCommercial++;
-      }
-      else if (this.grid[row][column - 1].lotType === 'school') {
-        numberSchools++;
-      } else if (this.grid[row][column - 1].lotType === 'residential') {
-        numberResidential++;
-      } else {
-        numberEmpty++;
-      }
 
+
+    if (this.grid[row]) {
+      if (this.grid[row][column - 1]) {
+        if (this.grid[row][column - 1].lotType === 'hospital') {
+          numberHospitals++;
+        } else if (this.grid[row][column - 1].lotType === 'business') {
+          numberCommercial++;
+        }
+        else if (this.grid[row][column - 1].lotType === 'school') {
+          numberSchools++;
+        } else if (this.grid[row][column - 1].lotType === 'residential') {
+          numberResidential++;
+        } else {
+          numberEmpty++;
+        }
+      }
+      if (this.grid[row][column + 1]) {
+        if (this.grid[row][column - 1].lotType === 'hospital') {
+          numberHospitals++;
+        } else if (this.grid[row][column - 1].lotType === 'business') {
+          numberCommercial++;
+        }
+        else if (this.grid[row][column - 1].lotType === 'school') {
+          numberSchools++;
+        } else if (this.grid[row][column - 1].lotType === 'residential') {
+          numberResidential++;
+        } else {
+          numberEmpty++;
+        }
+      }
     }
 
-    if (this.grid[row - 1][column - 1]) {
-      if (this.grid[row - 1][column - 1].lotType === 'hospital') {
-        numberHospitals++;
-      } else if (this.grid[row - 1][column - 1].lotType === 'business') {
-        numberCommercial++;
-      }
-      else if (this.grid[row - 1][column - 1].lotType === 'school') {
-        numberSchools++;
-      } else if (this.grid[row - 1][column - 1].lotType === 'residential') {
-        numberResidential++;
-      } else {
-        numberEmpty++;
-      }
 
-    }
-    if (this.grid[row - 1][column]) {
-      if (this.grid[row - 1][column].lotType === 'hospital') {
-        numberHospitals++;
-      } else if (this.grid[row - 1][column].lotType === 'business') {
-        numberCommercial++;
-      }
-      else if (this.grid[row - 1][column].lotType === 'school') {
-        numberSchools++;
-      } else if (this.grid[row - 1][column].lotType === 'residential') {
-        numberResidential++;
-      } else {
-        numberEmpty++;
-      }
+    if (this.grid[row - 1]) {
+      if (this.grid[row - 1][column - 1]) {
+        if (this.grid[row - 1][column - 1].lotType === 'hospital') {
+          numberHospitals++;
+        } else if (this.grid[row - 1][column - 1].lotType === 'business') {
+          numberCommercial++;
+        }
+        else if (this.grid[row - 1][column - 1].lotType === 'school') {
+          numberSchools++;
+        } else if (this.grid[row - 1][column - 1].lotType === 'residential') {
+          numberResidential++;
+        } else {
+          numberEmpty++;
+        }
 
-    }
-
-    if (this.grid[row - 1][column + 1]) {
-      if (this.grid[row - 1][column + 1].lotType === 'hospital') {
-        numberHospitals++;
-      } else if (this.grid[row - 1][column + 1].lotType === 'business') {
-        numberCommercial++;
       }
-      else if (this.grid[row - 1][column + 1].lotType === 'school') {
-        numberSchools++;
-      } else if (this.grid[row - 1][column + 1].lotType === 'residential') {
-        numberResidential++;
-      } else {
-        numberEmpty++;
-      }
+      if (this.grid[row - 1][column]) {
+        if (this.grid[row - 1][column].lotType === 'hospital') {
+          numberHospitals++;
+        } else if (this.grid[row - 1][column].lotType === 'business') {
+          numberCommercial++;
+        }
+        else if (this.grid[row - 1][column].lotType === 'school') {
+          numberSchools++;
+        } else if (this.grid[row - 1][column].lotType === 'residential') {
+          numberResidential++;
+        } else {
+          numberEmpty++;
+        }
 
-    }
-
-    if (this.grid[row][column + 1]) {
-      if (this.grid[row][column + 1].lotType === 'hospital') {
-        numberHospitals++;
-      } else if (this.grid[row][column + 1].lotType === 'business') {
-        numberCommercial++;
       }
-      else if (this.grid[row][column + 1].lotType === 'school') {
-        numberSchools++;
-      } else if (this.grid[row][column + 1].lotType === 'residential') {
-        numberResidential++;
-      } else {
-        numberEmpty++;
-      }
+      if (this.grid[row - 1][column + 1]) {
+        if (this.grid[row - 1][column + 1].lotType === 'hospital') {
+          numberHospitals++;
+        } else if (this.grid[row - 1][column + 1].lotType === 'business') {
+          numberCommercial++;
+        }
+        else if (this.grid[row - 1][column + 1].lotType === 'school') {
+          numberSchools++;
+        } else if (this.grid[row - 1][column + 1].lotType === 'residential') {
+          numberResidential++;
+        } else {
+          numberEmpty++;
+        }
 
+      }
     }
 
-    if (this.grid[row + 1][column + 1]) {
-      if (this.grid[row + 1][column + 1].lotType === 'hospital') {
-        numberHospitals++;
-      } else if (this.grid[row + 1][column + 1].lotType === 'business') {
-        numberCommercial++;
-      }
-      else if (this.grid[row + 1][column + 1].lotType === 'school') {
-        numberSchools++;
-      } else if (this.grid[row + 1][column + 1].lotType === 'residential') {
-        numberResidential++;
-      } else {
-        numberEmpty++;
+
+    if (this.grid[row + 1]) {
+
+
+      if (this.grid[row + 1][column + 1]) {
+        if (this.grid[row + 1][column + 1].lotType === 'hospital') {
+          numberHospitals++;
+        } else if (this.grid[row + 1][column + 1].lotType === 'business') {
+          numberCommercial++;
+        }
+        else if (this.grid[row + 1][column + 1].lotType === 'school') {
+          numberSchools++;
+        } else if (this.grid[row + 1][column + 1].lotType === 'residential') {
+          numberResidential++;
+        } else {
+          numberEmpty++;
+        }
+
       }
 
+      if (this.grid[row + 1][column]) {
+        if (this.grid[row + 1][column].lotType === 'hospital') {
+          numberHospitals++;
+        } else if (this.grid[row - +1][column].lotType === 'business') {
+          numberCommercial++;
+        }
+        else if (this.grid[row - +1][column].lotType === 'school') {
+          numberSchools++;
+        } else if (this.grid[row + 1][column].lotType === 'residential') {
+          numberResidential++;
+        } else {
+          numberEmpty++;
+        }
+
+      }
+      if (this.grid[row + 1][column - 1]) {
+        if (this.grid[row + 1][column + 1].lotType === 'hospital') {
+          numberHospitals++;
+        } else if (this.grid[row + 1][column - 1].lotType === 'business') {
+          numberCommercial++;
+        }
+        else if (this.grid[row + 1][column - 1].lotType === 'school') {
+          numberSchools++;
+        } else if (this.grid[row - +1][column - 1].lotType === 'residential') {
+          numberResidential++;
+        } else {
+          numberEmpty++;
+        }
+
+      }
     }
 
-    if (this.grid[row + 1][column]) {
-      if (this.grid[row + 1][column].lotType === 'hospital') {
-        numberHospitals++;
-      } else if (this.grid[row - +1][column].lotType === 'business') {
-        numberCommercial++;
-      }
-      else if (this.grid[row - +1][column].lotType === 'school') {
-        numberSchools++;
-      } else if (this.grid[row + 1][column].lotType === 'residential') {
-        numberResidential++;
-      } else {
-        numberEmpty++;
-      }
-
-    }
-    if (this.grid[row + 1][column - 1]) {
-      if (this.grid[row + 1][column + 1].lotType === 'hospital') {
-        numberHospitals++;
-      } else if (this.grid[row + 1][column - 1].lotType === 'business') {
-        numberCommercial++;
-      }
-      else if (this.grid[row + 1][column - 1].lotType === 'school') {
-        numberSchools++;
-      } else if (this.grid[row - +1][column - 1].lotType === 'residential') {
-        numberResidential++;
-      } else {
-        numberEmpty++;
-      }
-
-    }
-
+    console.log(numberEmpty, numberHospitals, numberResidential, numberSchools, numberCommercial)
 
   }
 

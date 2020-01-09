@@ -109,7 +109,7 @@ export default function (state = gameObject, action) {
       }
     case FINISH_TURN:
       {
-        console.log(action)
+
         let newMonth = state.month + 1;
         let newBankTotal = state.bankTotal + action.totalMonthlyIncome;
         let newPopulationTotal = state.population;

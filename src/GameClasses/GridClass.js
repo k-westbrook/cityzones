@@ -80,7 +80,7 @@ export default class GridClass {
       if (this.grid[row][column - 1]) {
         if (this.grid[row][column - 1].lotType === 'hospital') {
           numberHospitals++;
-        } else if (this.grid[row][column - 1].lotType === 'business') {
+        } else if (this.grid[row][column - 1].lotType === 'commercial') {
           numberCommercial++;
         }
         else if (this.grid[row][column - 1].lotType === 'school') {
@@ -94,7 +94,7 @@ export default class GridClass {
       if (this.grid[row][column + 1]) {
         if (this.grid[row][column + 1].lotType === 'hospital') {
           numberHospitals++;
-        } else if (this.grid[row][column + 1].lotType === 'business') {
+        } else if (this.grid[row][column + 1].lotType === 'commercial') {
           numberCommercial++;
         }
         else if (this.grid[row][column + 1].lotType === 'school') {
@@ -112,7 +112,7 @@ export default class GridClass {
       if (this.grid[row - 1][column - 1]) {
         if (this.grid[row - 1][column - 1].lotType === 'hospital') {
           numberHospitals++;
-        } else if (this.grid[row - 1][column - 1].lotType === 'business') {
+        } else if (this.grid[row - 1][column - 1].lotType === 'commercial') {
           numberCommercial++;
         }
         else if (this.grid[row - 1][column - 1].lotType === 'school') {
@@ -127,7 +127,7 @@ export default class GridClass {
       if (this.grid[row - 1][column]) {
         if (this.grid[row - 1][column].lotType === 'hospital') {
           numberHospitals++;
-        } else if (this.grid[row - 1][column].lotType === 'business') {
+        } else if (this.grid[row - 1][column].lotType === 'commercial') {
           numberCommercial++;
         }
         else if (this.grid[row - 1][column].lotType === 'school') {
@@ -142,7 +142,7 @@ export default class GridClass {
       if (this.grid[row - 1][column + 1]) {
         if (this.grid[row - 1][column + 1].lotType === 'hospital') {
           numberHospitals++;
-        } else if (this.grid[row - 1][column + 1].lotType === 'business') {
+        } else if (this.grid[row - 1][column + 1].lotType === 'commercial') {
           numberCommercial++;
         }
         else if (this.grid[row - 1][column + 1].lotType === 'school') {
@@ -163,7 +163,7 @@ export default class GridClass {
       if (this.grid[row + 1][column + 1]) {
         if (this.grid[row + 1][column + 1].lotType === 'hospital') {
           numberHospitals++;
-        } else if (this.grid[row + 1][column + 1].lotType === 'business') {
+        } else if (this.grid[row + 1][column + 1].lotType === 'commercial') {
           numberCommercial++;
         }
         else if (this.grid[row + 1][column + 1].lotType === 'school') {
@@ -179,10 +179,10 @@ export default class GridClass {
       if (this.grid[row + 1][column]) {
         if (this.grid[row + 1][column].lotType === 'hospital') {
           numberHospitals++;
-        } else if (this.grid[row - +1][column].lotType === 'business') {
+        } else if (this.grid[row + 1][column].lotType === 'commercial') {
           numberCommercial++;
         }
-        else if (this.grid[row - +1][column].lotType === 'school') {
+        else if (this.grid[row + 1][column].lotType === 'school') {
           numberSchools++;
         } else if (this.grid[row + 1][column].lotType === 'residential') {
           numberResidential++;
@@ -192,14 +192,14 @@ export default class GridClass {
 
       }
       if (this.grid[row + 1][column - 1]) {
-        if (this.grid[row + 1][column + 1].lotType === 'hospital') {
+        if (this.grid[row + 1][column - 1].lotType === 'hospital') {
           numberHospitals++;
-        } else if (this.grid[row + 1][column - 1].lotType === 'business') {
+        } else if (this.grid[row + 1][column - 1].lotType === 'commercial') {
           numberCommercial++;
         }
         else if (this.grid[row + 1][column - 1].lotType === 'school') {
           numberSchools++;
-        } else if (this.grid[row - +1][column - 1].lotType === 'residential') {
+        } else if (this.grid[row + 1][column - 1].lotType === 'residential') {
           numberResidential++;
         } else {
           numberEmpty++;

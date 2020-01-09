@@ -35,9 +35,43 @@
 
 .lot-card
 {
+  position: relative;
   display: flex;
   margin: 10px;
-  height: 90px;
-  width: 90px;
+  height: 100px;
+  width: 100px;
   border-style: double;
+  padding:5px;
 }
+
+.dropdown-lot-menu
+{
+  position: absolute;
+  display: none;
+  background-color: aliceblue;
+  color:blueviolet;
+  min-width: 90px;
+}
+
+.lot-card:hover .dropdown-lot-menu
+{
+display: flex;
+}
+
+
+.dropdown-lot-type-menu
+{
+  position: absolute;
+  display: none;
+  background-color: aliceblue;
+  color:blueviolet;
+  min-width: 100px;
+}
+
+.build-lot-menu:hover .dropdown-lot-type-menu
+{
+  display: block;
+}
+
+
+

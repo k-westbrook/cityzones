@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import LotMenu from './LotMenu';
 
 
 
@@ -8,6 +9,7 @@ function Lot(props) {
   return (
     <div className='lot-card'>
       <p>{lot.lotType}, {lot.id}</p>
+      <LotMenu />
     </div>
   )
 }

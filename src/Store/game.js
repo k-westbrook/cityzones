@@ -30,9 +30,18 @@ export const setNames = (mayorName, cityName) => ({ type: SET_NAMES, mayorName, 
 
 /**
  * THUNK CREATORS
- *///SPACE HOLDEr
+ *///
 
 
+//Space holder
+
+
+/**
+ * CLASS METHODS
+ */
+
+
+//space holder
 
 /**
  * REDUCER

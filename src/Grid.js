@@ -1,17 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Lot from './Lot';
+import Row from './Row';
 
 
 
 function Grid(props) {
 
-  const { grid } = props;
+  const { grid } = props.grid;
+  let count = -1;
   return (
     <div>
-      {grid.map(lot => {
+      {grid.map(row => {
+        count++;
         return (
-          <Lot />
+          <Row key={count} />
         )
       })}
 

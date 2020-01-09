@@ -4,5 +4,7 @@ export default class LotClass {
     this.lotType = 'empty';
     this.propertyValue = 1;
     this.population = 0;
+    this.id = null;
+    this.row = 0;
   }
 }

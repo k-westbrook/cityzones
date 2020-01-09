@@ -19,7 +19,8 @@ const gameObject = {
   grid: newGridClass,
   mayorName: '',
   cityName: '',
-  bankTotal: 1000
+  bankTotal: 1000,
+  population: 0
 };
 
 
@@ -28,7 +29,7 @@ const gameObject = {
  */
 
 export const setNames = (mayorName, cityName) => ({ type: SET_NAMES, mayorName, cityName })
-const setLotType = (row, column, newLotObject, cost) => ({ type: SET_LOT_TYPE, row, column, newLotObject, cost })
+const setLotType = (row, column, newLotObject, cost, population) => ({ type: SET_LOT_TYPE, row, column, newLotObject, cost, population })
 
 
 /**
@@ -61,13 +62,25 @@ export const setLotTypeClassMethod = (row, column, id, type) => async dispatch =
 
     let newLotObject = new LotClass(type, 1, population, id, row, column);
 
-    dispatch(setLotType(row, column, newLotObject, cost));
+    dispatch(setLotType(row, column, newLotObject, cost, population));
 
   } catch (err) {
     console.log(err);
   }
 
 }
+
+
+export const finishTurnClassMethod = () => async dispatch => {
+
+  try {
+
+  } catch (err) {
+    console.log(err)
+
+  }
+}
+
 //space holder
 
 /**
@@ -84,7 +97,8 @@ export default function (state = gameObject, action) {
         newGrid[action.row][action.column] = action.newLotObject;
         let newGridClass = new GridClass(newGrid);
         let newBankTotal = state.bankTotal - action.cost;
-        return { ...state, grid: newGridClass, bankTotal: newBankTotal };
+        let newPopulationTotal = state.population + action.population;
+        return { ...state, grid: newGridClass, bankTotal: newBankTotal, population: newPopulationTotal };
       }
     default:
       return state

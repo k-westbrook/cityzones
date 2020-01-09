@@ -1,6 +1,7 @@
 import axios from 'axios';
 import history from '../history'
 import GridClass from '../GameClasses/GridClass'
+import LotClass from '../GameClasses/LotClass'
 
 /**
  * ACTION TYPES
@@ -40,7 +41,15 @@ export const setNames = (mayorName, cityName) => ({ type: SET_NAMES, mayorName, 
  * CLASS METHODS
  */
 
+export const setLotTypeClassMethod = (newLotObject) => async dispatch => {
 
+  try {
+
+  } catch (err) {
+    console.log(err);
+  }
+
+}
 //space holder
 
 /**

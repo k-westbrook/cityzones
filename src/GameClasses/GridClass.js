@@ -18,6 +18,7 @@ export default class GridClass {
         newLotObject = new LotClass();
         newLotObject.id = idCount;
         newLotObject.row = i;
+        newLotObject.column = j;
         row.push(newLotObject);
         idCount++;
       }

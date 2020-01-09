@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 
 
 
@@ -6,7 +7,7 @@ function LotMenu(props) {
 
   function handleClick(evt) {
 
-    console.log(evt.target.value)
+    console.log(evt.target.value, props.row, props.column)
   }
   return (
     <div className='dropdown-lot-menu'>
@@ -32,5 +33,11 @@ function LotMenu(props) {
 
 }
 
+const mapDispatch = (dispatch) => {
+  return {
+    //setLotType:
+  }
+}
 
-export default LotMenu;
+
+export default connect(null, mapDispatch)(LotMenu);

@@ -113,7 +113,7 @@ export default function (state = gameObject, action) {
         let newMonth = state.month + 1;
         let newBankTotal = state.bankTotal + action.totalMonthlyIncome;
         let newPopulationTotal = state.population;
-        if (state.population > 0 && state.population / 600 >= action.totalHospitals) {
+        if (state.population > 20 && state.population / 600 >= action.totalHospitals) {
           newPopulationTotal -= 20;
         }
         return { ...state, month: newMonth, bankTotal: newBankTotal, numberOfHospitals: action.totalHospitals, numberOfSchools: action.totalSchools, population: newPopulationTotal };

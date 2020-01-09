@@ -92,14 +92,14 @@ export default class GridClass {
         }
       }
       if (this.grid[row][column + 1]) {
-        if (this.grid[row][column - 1].lotType === 'hospital') {
+        if (this.grid[row][column + 1].lotType === 'hospital') {
           numberHospitals++;
-        } else if (this.grid[row][column - 1].lotType === 'business') {
+        } else if (this.grid[row][column + 1].lotType === 'business') {
           numberCommercial++;
         }
-        else if (this.grid[row][column - 1].lotType === 'school') {
+        else if (this.grid[row][column + 1].lotType === 'school') {
           numberSchools++;
-        } else if (this.grid[row][column - 1].lotType === 'residential') {
+        } else if (this.grid[row][column + 1].lotType === 'residential') {
           numberResidential++;
         } else {
           numberEmpty++;

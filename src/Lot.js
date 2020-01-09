@@ -9,7 +9,7 @@ function Lot(props) {
   return (
     <div className='lot-card'>
       <p>{lot.lotType}, {lot.id}</p>
-      <LotMenu />
+      <LotMenu lotType={lot.lotType} />
     </div>
   )
 }

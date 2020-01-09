@@ -1,19 +1,25 @@
 import React from 'react';
-import LotTypeMenu from './LotTypeMenu';
 
 
-function LotMenu() {
+
+function LotMenu(props) {
   return (
     <div className='dropdown-lot-menu'>
       <div>
         <div>
-          <div className='build-lot-menu'>
-            <p>Build</p>
-          </div>
-          <p>Destroy</p>
-          <div className='dropdown-lot-type-menu'>
-            <LotTypeMenu />
-          </div>
+          {(props.lotType === 'empty') ?
+            <div className='build-lot-menu'>
+              <p>Residential</p>
+              <p>Commercial</p>
+              <p>School</p>
+              <p>Hospital</p>
+
+            </div>
+            :
+            <div>
+              <p>Destroy</p>
+            </div>
+          }
         </div>
       </div>
     </div>

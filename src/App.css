@@ -59,19 +59,7 @@ display: flex;
 }
 
 
-.dropdown-lot-type-menu
-{
-  position: absolute;
-  display: none;
-  background-color: aliceblue;
-  color:blueviolet;
-  min-width: 100px;
-}
 
-.build-lot-menu:hover .dropdown-lot-type-menu
-{
-  display: block;
-}
 
 
 

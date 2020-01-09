@@ -6,13 +6,13 @@ import { setLotTypeClassMethod } from './Store/game'
 function LotMenu(props) {
 
   function handleClick(evt) {
-    props.setLotType(props.row, props.column, props.lotId, evt.target.value)
+    props.setLotType(props.lot.row, props.lot.column, props.lot.lotId, evt.target.value)
   }
   return (
     <div className='dropdown-lot-menu'>
       <div>
         <div>
-          {(props.lotType === 'empty') ?
+          {(props.lot.lotType === 'empty') ?
             <div className='build-lot-menu'>
               <button onClick={handleClick} value='residential' >Residential</button>
               <button onClick={handleClick}

@@ -3,8 +3,11 @@ import LotClass from './LotClass'
 
 export default class GridClass {
 
-  constructor(grid = []) {
+  constructor(grid = [], population = 0, numberSchools = 0, numberHospitals = 0) {
     this.grid = grid;
+    this.population = population;
+    this.numberSchools = numberSchools;
+    this.numberHospitals = numberHospitals;
   }
 
   initializeGrid() {

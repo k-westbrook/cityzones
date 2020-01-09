@@ -33,7 +33,7 @@ const gameObject = {
 
 export const setNames = (mayorName, cityName) => ({ type: SET_NAMES, mayorName, cityName })
 const setLotType = (row, column, newLotObject, cost, population) => ({ type: SET_LOT_TYPE, row, column, newLotObject, cost, population })
-const finishTurn = (totalMonthlyIncome, totalHospitals, totalSchools) => ({ type: FINISH_TURN, totalMonthlyIncome, totalHospitals, totalSchools })
+const finishTurn = (newGrid, totalMonthlyIncome, totalHospitals, totalSchools) => ({ type: FINISH_TURN, newGrid, totalMonthlyIncome, totalHospitals, totalSchools })
 
 /**
  * THUNK CREATORS
@@ -81,7 +81,8 @@ export const finishTurnClassMethod = (grid) => async dispatch => {
     let totalMonthlyIncome = grid.calculateIncome();
     let totalSchools = grid.calculateSchools();
     let totalHospitals = grid.calculateHospitals();
-    dispatch(finishTurn(totalMonthlyIncome, totalHospitals, totalSchools))
+    let newGrid = grid.calculateBuilds();
+    dispatch(finishTurn(newGrid, totalMonthlyIncome, totalHospitals, totalSchools))
 
   } catch (err) {
     console.log(err)
@@ -116,7 +117,7 @@ export default function (state = gameObject, action) {
         if (state.population > 20 && state.population / 600 >= action.totalHospitals) {
           newPopulationTotal -= 20;
         }
-        return { ...state, month: newMonth, bankTotal: newBankTotal, numberOfHospitals: action.totalHospitals, numberOfSchools: action.totalSchools, population: newPopulationTotal };
+        return { ...state, grid: action.newGrid, month: newMonth, bankTotal: newBankTotal, numberOfHospitals: action.totalHospitals, numberOfSchools: action.totalSchools, population: newPopulationTotal };
 
       }
     default:

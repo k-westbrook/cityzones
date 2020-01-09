@@ -29,91 +29,6 @@ export default class GridClass {
     }
   }
 
-  // calculateIncome() {
-  //   let total = 0;
-  //   let grid = this.grid;
-  //   for (let i = 0; i < 6; i++) {
-  //     for (let j = 0; j < 5; j++) {
-
-  //       if (grid[i][j].lotType === 'residential' && grid[i][j].built) {
-  //         total += 5;
-  //       } else if (grid[i][j].lotType === 'commercial' && grid[i][j].built) {
-  //         total += 25;
-  //       }
-  //     }
-  //   }
-
-  //   return total;
-  // }
-
-  // calculateSchools() {
-  //   let total = 0;
-  //   let grid = this.grid;
-  //   for (let i = 0; i < 6; i++) {
-  //     for (let j = 0; j < 5; j++) {
-
-  //       if (grid[i][j].lotType === 'school' && grid[i][j].built) {
-  //         total++;
-
-  //       }
-  //     }
-  //   }
-
-  //   return total;
-  // }
-
-
-  // calculateHospitals() {
-  //   let total = 0;
-  //   let grid = this.grid;
-  //   for (let i = 0; i < 6; i++) {
-  //     for (let j = 0; j < 5; j++) {
-
-  //       if (grid[i][j].lotType === 'hospital' && grid[i][j].built) {
-  //         total++;
-
-  //       }
-  //     }
-  //   }
-
-  //   return total;
-  // }
-
-  // calculateBuilds() {
-  //   let grid = this.grid;
-  //   for (let i = 0; i < 6; i++) {
-  //     for (let j = 0; j < 5; j++) {
-
-  //       if (grid[i][j].monthsToBuild > 0) {
-  //         grid[i][j].monthsToBuild -= 1;
-  //         if (grid[i][j].monthsToBuild === 0) {
-  //           grid[i][j].built = true;
-  //         }
-  //       }
-
-  //     }
-  //   }
-
-  //   return [...grid];
-  // }
-
-
-  // calculatePopulation() {
-  //   let grid = this.grid;
-  //   let population = 0;
-  //   for (let i = 0; i < 6; i++) {
-  //     for (let j = 0; j < 5; j++) {
-  //       if (grid[i][j].lotType === 'residential' && grid[i][j].built) {
-  //         population += 150;
-  //       }
-
-  //     }
-  //   }
-
-  //   return population;
-  // }
-
-
   finishTurn() {
     let grid = this.grid;
     let population = 0;
@@ -122,14 +37,15 @@ export default class GridClass {
     let totalIncome = 0;
     for (let i = 0; i < 6; i++) {
       for (let j = 0; j < 5; j++) {
-        if (grid[i][j].lotType === 'residential' && grid[i][j].built) {
-          population += 150;
-        }
         if (grid[i][j].monthsToBuild > 0) {
           grid[i][j].monthsToBuild -= 1;
           if (grid[i][j].monthsToBuild === 0) {
             grid[i][j].built = true;
           }
+        }
+        if (grid[i][j].lotType === 'residential' && grid[i][j].built) {
+          population += 150;
+          totalIncome += 5;
         }
         if (grid[i][j].lotType === 'hospital' && grid[i][j].built) {
           totalHospitals++;
@@ -139,15 +55,13 @@ export default class GridClass {
           totalSchools++;
 
         }
-        if (grid[i][j].lotType === 'residential' && grid[i][j].built) {
-          totalIncome += 5;
-        } else if (grid[i][j].lotType === 'commercial' && grid[i][j].built) {
+        if (grid[i][j].lotType === 'commercial' && grid[i][j].built) {
           totalIncome += 25;
         }
 
       }
     }
-
+    return { grid: [...grid], population, totalIncome, totalHospitals, totalSchools };
   }
 
 }

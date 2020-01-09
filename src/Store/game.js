@@ -17,8 +17,8 @@ const newGridClass = new GridClass();
 newGridClass.initializeGrid();
 const gameObject = {
   grid: newGridClass,
-  mayorName: '',
-  cityName: '',
+  mayorName: 'Sea',
+  cityName: 'Seattle',
   bankTotal: 1000,
   population: 0,
   month: 0,

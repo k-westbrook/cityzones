@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 
 
 function Lot(props) {
-
+  const { lot } = props;
   return (
-    <div>
-
+    <div className='lot-card'>
+      <p>{lot.lotType}, {lot.id}</p>
     </div>
   )
 }

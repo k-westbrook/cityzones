@@ -14,7 +14,7 @@ function Grid(props) {
       {grid.map(row => {
         count++;
         return (
-          <Row key={count} />
+          <Row key={count} row={row} />
         )
       })}
 

@@ -6,12 +6,11 @@ import Lot from './Lot';
 
 function Row(props) {
 
-  const { grid } = props.grid;
   return (
-    <div>
-      {grid.map(lot => {
+    <div className='lot-row'>
+      {props.row.map(lot => {
         return (
-          <Lot key={lot.id} />
+          <Lot key={lot.id} lot={lot} />
         )
       })}
 

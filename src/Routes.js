@@ -15,12 +15,12 @@ function Routes(props) {
 
         <Switch>
           <Route exact path="/start" component={HomePage} />
-          {cityName.length > 0 &&
-            <Switch>
-              < Route exact path='/explanation' component={Explanation} />
-              <Route exact path='/play' component={GameBoard} />
-            </Switch>
-          }
+          {/* {cityName.length > 0 && */}
+          <Switch>
+            < Route exact path='/explanation' component={Explanation} />
+            <Route exact path='/play' component={GameBoard} />
+          </Switch>
+          {/* } */}
           <Route component={HomePage} />
           />
     </Switch>

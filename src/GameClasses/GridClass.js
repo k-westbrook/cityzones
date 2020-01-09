@@ -64,6 +64,50 @@ export default class GridClass {
     return { grid: [...grid], population, totalIncome, totalHospitals, totalSchools };
   }
 
+
+  updatePropertyValueMultiplier(row, column) {
+    let numberHospitals = 0;
+    let numberSchools = 0;
+    let numberResidential = 0;
+    let numberCommercial = 0;
+    let numberEmpty = 0;
+
+    if (this.grid[row][column - 1]) {
+      if (this.grid[row][column - 1].lotType === 'hospital') {
+        numberHospitals++;
+      } else if (this.grid[row][column - 1].lotType === 'business') {
+        numberCommercial++;
+      }
+      else if (this.grid[row][column - 1].lotType === 'school') {
+        numberSchools++;
+      } else if (this.grid[row][column - 1].lotType === 'residential') {
+        numberResidential++;
+      } else {
+        numberEmpty++;
+      }
+
+    }
+
+    if (this.grid[row - 1][column - 1]) {
+      if (this.grid[row - 1][column - 1].lotType === 'hospital') {
+        numberHospitals++;
+      } else if (this.grid[row - 1][column - 1].lotType === 'business') {
+        numberCommercial++;
+      }
+      else if (this.grid[row - 1][column - 1].lotType === 'school') {
+        numberSchools++;
+      } else if (this.grid[row - 1][column - 1].lotType === 'residential') {
+        numberResidential++;
+      } else {
+        numberEmpty++;
+      }
+
+    }
+
+
+
+  }
+
 }
 
 

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import HomePage from './HomePage'
 import Explanation from './Explanation'
 import GameBoard from './GameBoard'
+import End from './End'
 
 
 function Routes(props) {
@@ -19,6 +20,7 @@ function Routes(props) {
           <Switch>
             < Route exact path='/explanation' component={Explanation} />
             <Route exact path='/play' component={GameBoard} />
+            <Route exact path='/end' component={End} />
           </Switch>
           {/* } */}
           <Route component={HomePage} />

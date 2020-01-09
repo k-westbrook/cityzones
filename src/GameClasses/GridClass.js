@@ -3,8 +3,8 @@ import LotClass from './LotClass'
 
 export default class GridClass {
 
-  constructor() {
-    this.grid = [];
+  constructor(grid = []) {
+    this.grid = grid;
   }
 
   initializeGrid() {

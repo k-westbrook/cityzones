@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux'
-
+import { setLotTypeClassMethod } from './Store/game'
 
 
 function LotMenu(props) {
 
   function handleClick(evt) {
-
-    console.log(evt.target.value, props.row, props.column)
+    props.setLotType(props.row, props.column, props.lotId, evt.target.value)
   }
   return (
     <div className='dropdown-lot-menu'>
@@ -35,7 +34,7 @@ function LotMenu(props) {
 
 const mapDispatch = (dispatch) => {
   return {
-    //setLotType:
+    setLotType: (row, column, id, type) => dispatch(setLotTypeClassMethod(row, column, id, type))
   }
 }
 

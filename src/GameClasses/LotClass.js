@@ -4,7 +4,7 @@ export default class LotClass {
     this.lotType = lotType;
     this.propertyValue = propertyValue;
     this.population = population;
-    this.id = null
+    this.id = id;
     this.row = row;
     this.column = column;
   }

@@ -28,10 +28,20 @@ function LotMenu(props) {
               {(props.bankTotal >= 150) &&
                 <button onClick={handleClick} value='school'>School</button>
               }
+              {(props.bankTotal < 50) &&
+                <p>Not Enough Money</p>
+              }
             </div>
             :
             <div>
-              <button onClick={handleClick} value='empty'>Destroy</button>
+              {(props.bankTotal >= 50) ?
+                <button onClick={handleClick} value='empty'>Destroy</button>
+
+                :
+                <div>
+                  <p>Not Enough Money</p>
+                </div>
+              }
             </div>
           }
         </div>

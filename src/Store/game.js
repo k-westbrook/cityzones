@@ -90,6 +90,8 @@ export const finishTurnClassMethod = (grid) => async dispatch => {
     let totalHospitals = grid.calculateHospitals();
     let newGrid = grid.calculateBuilds();
     let newPopulationTotal = grid.calculatePopulation();
+
+
     dispatch(finishTurn(newGrid, totalMonthlyIncome, totalHospitals, totalSchools, newPopulationTotal))
 
   } catch (err) {
@@ -111,7 +113,7 @@ export default function (state = gameObject, action) {
       {
         let newGrid = [...state.grid.grid];
         newGrid[action.row][action.column] = action.newLotObject;
-        let newGridClass = new GridClass(newGrid);
+        let newGridClass = new GridClass(newGrid, state.population, state.numberOfSchools, state.numberOfHospitals);
         let newBankTotal = state.bankTotal - action.cost;
         return { ...state, grid: newGridClass, bankTotal: newBankTotal };
       }
@@ -119,13 +121,13 @@ export default function (state = gameObject, action) {
       {
 
         let newGrid = action.newGrid;
-        let newGridObject = new GridClass(newGrid);
         let newMonth = state.month + 1;
         let newBankTotal = state.bankTotal + action.totalMonthlyIncome;
         let newPopulationTotal = action.newPopulationTotal;
         if (newPopulationTotal > 20 && newPopulationTotal / 600 >= action.totalHospitals && state.month > 6) {
           newPopulationTotal -= 20;
         }
+        let newGridObject = new GridClass(newGrid, newPopulationTotal, action.totalSchools, action.totalHospitals);
         return { ...state, grid: newGridObject, month: newMonth, bankTotal: newBankTotal, numberOfHospitals: action.totalHospitals, numberOfSchools: action.totalSchools, population: newPopulationTotal };
 
       }

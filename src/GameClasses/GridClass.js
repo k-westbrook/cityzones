@@ -35,9 +35,9 @@ export default class GridClass {
     for (let i = 0; i < 6; i++) {
       for (let j = 0; j < 5; j++) {
 
-        if (grid[i][j].lotType === 'residential') {
+        if (grid[i][j].lotType === 'residential' && grid[i][j].built) {
           total += 5;
-        } else if (grid[i][j].lotType === 'commercial') {
+        } else if (grid[i][j].lotType === 'commercial' && grid[i][j].built) {
           total += 25;
         }
       }
@@ -52,7 +52,7 @@ export default class GridClass {
     for (let i = 0; i < 6; i++) {
       for (let j = 0; j < 5; j++) {
 
-        if (grid[i][j].lotType === 'school') {
+        if (grid[i][j].lotType === 'school' && grid[i][j].built) {
           total++;
 
         }
@@ -69,7 +69,7 @@ export default class GridClass {
     for (let i = 0; i < 6; i++) {
       for (let j = 0; j < 5; j++) {
 
-        if (grid[i][j].lotType === 'hospital') {
+        if (grid[i][j].lotType === 'hospital' && grid[i][j].built) {
           total++;
 
         }

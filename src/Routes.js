@@ -15,13 +15,13 @@ function Routes(props) {
 
         <Switch>
           <Route exact path="/start" component={HomePage} />
-          {started &&
-            <Switch>
-              < Route exact path='/explanation' component={Explanation} />
-              <Route exact path='/play' component={GameBoard} />
-              <Route exact path='/end' component={End} />
-            </Switch>
-          }
+          {/* {started &&
+            <Switch> */}
+          < Route exact path='/explanation' component={Explanation} />
+          <Route exact path='/play' component={GameBoard} />
+          <Route exact path='/end' component={End} />
+          {/* </Switch>
+          } */}
           <Redirect to="/start" />
           />
     </Switch>

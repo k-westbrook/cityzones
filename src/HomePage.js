@@ -13,7 +13,7 @@ function HomePage(props) {
   };
 
   return (
-    <div>
+    <div className='homepage-container'>
       <h1>cityzones</h1>
       <h2>Welcome to cityzones! Build a city today.</h2>
       <div>

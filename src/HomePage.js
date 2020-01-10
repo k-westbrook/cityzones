@@ -28,7 +28,7 @@ function HomePage(props) {
             <p className='homepage-form-input-label'>City name</p>
             <input type='text' maxLength='15' name='cityName' className='homepage-form-text-input' ></input>
           </div>
-          <button>Start Game</button>
+          <button className='general-button'>Start Game</button>
         </form>
       </div>
     </div>

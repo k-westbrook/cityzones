@@ -99,7 +99,7 @@ margin:0px;
 .homepage-form
 {
   width:550px;
-  height:200px;
+  height:250px;
   border-style: solid;
   padding:50px;
 }
@@ -112,6 +112,7 @@ height:70px;
 align-items:center;
 justify-content: center;
 font-size:30px;
+margin-bottom: 30px;
 }
 
 .homepage-form-text-input
@@ -128,6 +129,11 @@ font-size:30px;
 
 .general-button
 {
+ height:60px;
+ width: 200px;
+ font-size: 30px;
+ background-color: gray;
+ color:white;
 
 }
 

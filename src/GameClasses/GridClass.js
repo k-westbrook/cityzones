@@ -73,7 +73,7 @@ export default class GridClass {
     let numberResidential = 0;
     let numberCommercial = 0;
     let numberEmpty = 0;
-
+    let propertyValueMultiplier = 1.0;
 
 
     if (this.grid[row]) {
@@ -208,7 +208,25 @@ export default class GridClass {
       }
     }
 
-    console.log(numberEmpty, numberHospitals, numberResidential, numberSchools, numberCommercial)
+    if (numberSchools >= 2) {
+      propertyValueMultiplier += 0.25;
+    } else if (numberSchools === 0) {
+      propertyValueMultiplier -= 0.25;
+    }
+
+    if (numberHospitals >= 1) {
+      propertyValueMultiplier += 0.25;
+    } else if (numberHospitals === 0) {
+      propertyValueMultiplier -= 0.25;
+    }
+
+    if (numberResidential >= 5 || numberEmpty >= 7) {
+      propertyValueMultiplier += 0.25
+    }
+
+    if (numberCommercial >= 4) {
+      propertyValueMultiplier -= 0.25;
+    }
 
   }
 

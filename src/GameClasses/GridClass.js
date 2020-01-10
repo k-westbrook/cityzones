@@ -58,7 +58,15 @@ export default class GridClass {
 
         }
         if (grid[i][j].lotType === 'commercial' && grid[i][j].built) {
-          totalIncome += 25;
+          let smartBusinessValue = 0.75;
+          if (grid.numberSchools >= 10) {
+            smartBusinessValue = 3.0;
+          } else if (grid.numberSchools >= 7) {
+            smartBusinessValue = 2.0;
+          } else if (grid.numberSchools >= 3) {
+            smartBusinessValue = 1.0
+          }
+          totalIncome += 25 * (smartBusinessValue);
         }
 
       }

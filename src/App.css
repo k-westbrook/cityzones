@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   width: 100vw;
+  font-family: 'Roboto', sans-serif;
 }
 
 .App-logo {
@@ -62,18 +63,20 @@ display: flex;
 
 .homepage-container
 {
-  border-style: solid;
-  padding:20px;
+  width:100vw;
+  height: 100vh;
 }
 
 .homepage-opening-container
 {
-border-style: groove;
+border-bottom-style: solid;
+padding-bottom:50px;
+margin-top: 50px;
 }
 .homepage-title
 {
+  font-family: 'Press Start 2P', cursive;
 font-size: 70px;
-background-color: crimson;
 padding:0px;
 margin:0px;
 }
@@ -82,6 +85,7 @@ margin:0px;
 {
   padding:0px;
   margin:0px;
+  font-family: 'Cedarville Cursive', cursive;
 }
 
 

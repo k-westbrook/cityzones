@@ -35,6 +35,9 @@ export default class GridClass {
     let totalHospitals = 0;
     let totalSchools = 0;
     let totalIncome = 0;
+    let totalPropertyValue = 0;
+    let propertyCount = 0;
+
     for (let i = 0; i < 6; i++) {
       for (let j = 0; j < 5; j++) {
         if (grid[i][j].monthsToBuild > 0) {
@@ -45,9 +48,11 @@ export default class GridClass {
         }
         if (grid[i][j].lotType === 'residential' && grid[i][j].built) {
           let valueMultiplier = this.updatePropertyValueAndPopulationMultiplier(i, j);
-
           population += 150 * (valueMultiplier.populationMultiplier);
           totalIncome += 5 * (valueMultiplier.propertyValueMultiplier);
+          totalPropertyValue += valueMultiplier.propertyValueMultiplier;
+          propertyCount++;
+          grid[i][j].propertyValue = valueMultiplier.propertyValueMultiplier;
         }
         if (grid[i][j].lotType === 'hospital' && grid[i][j].built) {
           totalHospitals++;
@@ -67,11 +72,31 @@ export default class GridClass {
             smartBusinessValue = 1.0
           }
           totalIncome += 25 * (smartBusinessValue);
+          grid[i][j].propertyValue = smartBusinessValue;
+        }
+
+        if (grid[i][j].propertyValue) {
+          if (grid[i][j].propertyValue > 2.5) {
+            grid[i][j].propertyValueString = 'very high'
+          } else if (grid[i][j].propertyValue > 2.0) {
+            grid[i][j].propertyValueString = 'high'
+          } else if (grid[i][j].propertyValue > 1.5) {
+            grid[i][j].propertyValueString = 'above average'
+          } else if (grid[i][j].propertyValue > 1.0) {
+            grid[i][j].propertyValueString = 'slightly above average'
+          } else if (grid[i][j].propertyValue > 0.75) {
+            grid[i][j].propertyValueString = 'below average'
+          } else if (grid[i][j].propertyValue > 0.5) {
+            grid[i][j].propertyValueString = 'low'
+          } else {
+            grid[i][j].propertyValueString = 'horrible'
+
+          }
         }
 
       }
     }
-    return { grid: [...grid], population, totalIncome, totalHospitals, totalSchools };
+    return { grid: [...grid], population, totalIncome, totalHospitals, totalSchools, overallPropertyValue: (totalPropertyValue / propertyCount) };
   }
 
 

@@ -23,7 +23,8 @@ const gameObject = {
   population: 0,
   month: 0,
   numberOfHospitals: 0,
-  numberOfSchools: 0
+  numberOfSchools: 0,
+  overallPropertyValue: 1.0
 };
 
 
@@ -33,7 +34,7 @@ const gameObject = {
 
 export const setNames = (mayorName, cityName) => ({ type: SET_NAMES, mayorName, cityName })
 const setLotType = (row, column, newLotObject, cost, population, built, monthsToBuild) => ({ type: SET_LOT_TYPE, row, column, newLotObject, cost, population, built, monthsToBuild })
-const finishTurn = (newGrid, totalMonthlyIncome, totalHospitals, totalSchools, newPopulationTotal) => ({ type: FINISH_TURN, newGrid, totalMonthlyIncome, totalHospitals, totalSchools, newPopulationTotal })
+const finishTurn = (newGrid, totalMonthlyIncome, totalHospitals, totalSchools, newPopulationTotal, overallPropertyValue) => ({ type: FINISH_TURN, newGrid, totalMonthlyIncome, totalHospitals, totalSchools, newPopulationTotal, overallPropertyValue })
 
 /**
  * THUNK CREATORS
@@ -88,7 +89,7 @@ export const finishTurnClassMethod = (grid) => async dispatch => {
 
 
 
-    dispatch(finishTurn(turnDataObject.grid, turnDataObject.totalIncome, turnDataObject.totalHospitals, turnDataObject.totalSchools, turnDataObject.population))
+    dispatch(finishTurn(turnDataObject.grid, turnDataObject.totalIncome, turnDataObject.totalHospitals, turnDataObject.totalSchools, turnDataObject.population, turnDataObject.overallPropertyValue))
 
   } catch (err) {
     console.log(err)
@@ -124,7 +125,7 @@ export default function (state = gameObject, action) {
           newPopulationTotal -= 20;
         }
         let newGridObject = new GridClass(newGrid, newPopulationTotal, action.totalSchools, action.totalHospitals);
-        return { ...state, grid: newGridObject, month: newMonth, bankTotal: newBankTotal, numberOfHospitals: action.totalHospitals, numberOfSchools: action.totalSchools, population: newPopulationTotal };
+        return { ...state, grid: newGridObject, month: newMonth, bankTotal: newBankTotal, numberOfHospitals: action.totalHospitals, numberOfSchools: action.totalSchools, population: newPopulationTotal, overallPropertyValue: action.overallPropertyValue };
 
       }
     default:

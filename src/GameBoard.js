@@ -14,9 +14,9 @@ function GameBoard(props) {
     }
   }
   return (
-    <div>
+    <div className='gameboard-container'>
       <div>
-        <h1> Gameboard</h1>
+        <h1 className='gameboard-title'> City of {props.cityName}</h1>
         <div>
           <p>
             Month: {props.month}
@@ -34,6 +34,7 @@ function GameBoard(props) {
 
 const mapState = (state) => {
   return {
+    cityName: state.game.cityName,
     bankTotal: state.game.bankTotal,
     population: state.game.population,
     month: state.game.month,

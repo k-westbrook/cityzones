@@ -18,8 +18,8 @@ function HomePage(props) {
         <h1 className='homepage-title'>cityzones</h1>
         <h2 className='homepage-tag-line'>Build a city today.</h2>
       </div>
-      <div>
-        <form onSubmit={handleSubmit}>
+      <div className='homepage-form-container'>
+        <form className='homepage-form' onSubmit={handleSubmit}>
           <div>
             <p>Mayor's Name</p>
             <input type='text' maxLength='15' name='mayorName' ></input>

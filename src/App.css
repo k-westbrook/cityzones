@@ -65,11 +65,12 @@ display: flex;
 {
   width:100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .homepage-opening-container
 {
-border-bottom-style: solid;
 padding-bottom:50px;
 margin-top: 50px;
 }
@@ -86,6 +87,19 @@ margin:0px;
   padding:0px;
   margin:0px;
   font-family: 'Cedarville Cursive', cursive;
+}
+
+.homepage-form-container
+{
+  display: flex;
+  justify-content: center;
+}
+
+.homepage-form
+{
+  width:500px;
+  height:300px;
+  border-style: solid;
 }
 
 

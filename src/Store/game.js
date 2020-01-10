@@ -16,6 +16,7 @@ const FINISH_TURN = 'FINISH_TURN';
 const newGridClass = new GridClass();
 newGridClass.initializeGrid();
 const gameObject = {
+  started: false,
   grid: newGridClass,
   mayorName: 'Sea',
   cityName: 'Seattle',
@@ -115,7 +116,7 @@ export const finishTurnClassMethod = (grid) => async dispatch => {
 export default function (state = gameObject, action) {
   switch (action.type) {
     case SET_NAMES:
-      return { ...state, mayorName: action.mayorName, cityName: action.cityName }
+      return { ...state, mayorName: action.mayorName, cityName: action.cityName, started: true }
     case SET_LOT_TYPE:
       {
         let newGrid = [...state.grid.grid];

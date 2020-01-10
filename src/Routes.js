@@ -8,21 +8,20 @@ import End from './End'
 
 
 function Routes(props) {
-  console.log(props)
-  const cityName = props.cityName;
+  const { started } = props;
   return (
     <div className="App">
       <header className="App-header">
 
         <Switch>
           <Route exact path="/start" component={HomePage} />
-          {/* {cityName.length > 0 && */}
-          <Switch>
-            < Route exact path='/explanation' component={Explanation} />
-            <Route exact path='/play' component={GameBoard} />
-            <Route exact path='/end' component={End} />
-          </Switch>
-          {/* } */}
+          {started &&
+            <Switch>
+              < Route exact path='/explanation' component={Explanation} />
+              <Route exact path='/play' component={GameBoard} />
+              <Route exact path='/end' component={End} />
+            </Switch>
+          }
           <Route component={HomePage} />
           />
     </Switch>
@@ -34,7 +33,7 @@ function Routes(props) {
 const mapState = (state) => {
 
   return {
-    cityName: state.game.cityName,
+    started: state.game.started,
 
   }
 }

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  width: 100vw;
 }
 
 .App-logo {
@@ -62,8 +63,25 @@ display: flex;
 .homepage-container
 {
   border-style: solid;
-  padding:100px;
+  padding:20px;
+}
 
+.homepage-opening-container
+{
+border-style: groove;
+}
+.homepage-title
+{
+font-size: 70px;
+background-color: crimson;
+padding:0px;
+margin:0px;
+}
+
+.homepage-tag-line
+{
+  padding:0px;
+  margin:0px;
 }
 
 

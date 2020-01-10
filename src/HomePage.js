@@ -14,8 +14,10 @@ function HomePage(props) {
 
   return (
     <div className='homepage-container'>
-      <h1>cityzones</h1>
-      <h2>Welcome to cityzones! Build a city today.</h2>
+      <div className='homepage-opening-container'>
+        <h1 className='homepage-title'>cityzones</h1>
+        <h2 className='homepage-tag-line'>Welcome to cityzones! Build a city today.</h2>
+      </div>
       <div>
         <form onSubmit={handleSubmit}>
           <div>

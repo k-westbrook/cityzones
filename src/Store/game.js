@@ -48,7 +48,7 @@ const finishTurn = (newGrid, totalMonthlyIncome, totalHospitals, totalSchools, n
  * CLASS METHODS
  */
 
-export const setLotTypeClassMethod = (row, column, id, type) => async dispatch => {
+export const setLotTypeClassMethod = (row, column, id, type, isUpgrade = false, currentLotLevel = 1) => async dispatch => {
 
   try {
 
@@ -56,10 +56,17 @@ export const setLotTypeClassMethod = (row, column, id, type) => async dispatch =
     let cost = 100;
     let monthsToBuild = 0;
     let built = false;
+    let level = currentLotLevel;
 
     if (type === 'residential') {
       population = 150;
       monthsToBuild = 2;
+      if (isUpgrade) {
+        cost = 50;
+        population += 50;
+        monthsToBuild = 1;
+        level++;
+      }
       cost = 50;
     } else if (type === 'school') {
       cost = 150;
@@ -69,9 +76,14 @@ export const setLotTypeClassMethod = (row, column, id, type) => async dispatch =
       monthsToBuild = 8;
     } else if (type === 'commercial') {
       monthsToBuild = 4;
+      if (isUpgrade) {
+        cost = 100
+        monthsToBuild = 2;
+        level++;
+      }
     }
 
-    let newLotObject = new LotClass(type, null, population, id, row, column, built, monthsToBuild);
+    let newLotObject = new LotClass(type, null, population, id, row, column, built, monthsToBuild, level);
 
     dispatch(setLotType(row, column, newLotObject, cost, population));
 

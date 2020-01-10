@@ -6,9 +6,14 @@ import { setLotTypeClassMethod } from './Store/game'
 function LotMenu(props) {
 
   function handleClick(evt) {
-    props.setLotType(props.lot.row, props.lot.column, props.lot.id, evt.target.value)
+    if (evt.target.value !== 'updgrade') {
+      props.setLotType(props.lot.row, props.lot.column, props.lot.id, evt.target.value)
+    } else {
+      props.setLotType(props.lot.row, props.lot.column, props.lot.id, props.lot.lotType, true, props.lot.lotUpgrade)
 
+    }
   }
+
   return (
     <div className='dropdown-lot-menu'>
       <div>
@@ -37,8 +42,8 @@ function LotMenu(props) {
               {(props.bankTotal >= 50) ?
                 <div>
                   <button onClick={handleClick} value='empty'>Destroy</button>
-                  {(props.lot.lotUpgrade < 4 && props.lot.built) &&
-                    <button >Upgrade</button>
+                  {(props.lot.lotUpgrade < 4 && props.lot.built && (props.lot.lotType === 'residential' || props.lot.lotType === 'commercial')) &&
+                    <button value='upgrade' onClick={handleClick}>Upgrade</button>
 
                   }
                 </div>

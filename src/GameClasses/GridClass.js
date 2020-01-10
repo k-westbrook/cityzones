@@ -71,8 +71,10 @@ export default class GridClass {
           } else if (grid.numberSchools >= 3) {
             smartBusinessValue = 1.5
           }
+          smartBusinessValue += grid[i][j].lotUpgrade * (0.25);
           totalIncome += 25 * (smartBusinessValue);
           grid[i][j].propertyValue = smartBusinessValue;
+
         }
 
         if (grid[i][j].propertyValue) {
@@ -266,6 +268,8 @@ export default class GridClass {
     } else if (numberCommercial >= 1) {
       populationMultiplier += 0.25;
     }
+
+    propertyValueMultiplier += this.grid[row][column].lotUpgrade * (0.25);
 
     return { propertyValueMultiplier, populationMultiplier };
   }

@@ -20,9 +20,9 @@ function HomePage(props) {
       </div>
       <div className='homepage-form-container'>
         <form className='homepage-form' onSubmit={handleSubmit}>
-          <div>
-            <p>Mayor's Name</p>
-            <input type='text' maxLength='15' name='mayorName' ></input>
+          <div className='homepage-form-input-container'>
+            <p className='homepage-form-input-label'>Mayor's Name</p>
+            <input type='text' maxLength='15' name='mayorName' className='homepage-form-text-input' ></input>
           </div>
           <div>
             <p>City name</p>

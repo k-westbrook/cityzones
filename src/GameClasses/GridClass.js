@@ -44,10 +44,10 @@ export default class GridClass {
           }
         }
         if (grid[i][j].lotType === 'residential' && grid[i][j].built) {
-          this.updatePropertyValueMultiplier(i, j)
+          let valueMultiplier = this.updatePropertyValueAndPopulationMultiplier(i, j);
 
-          population += 150;
-          totalIncome += 5;
+          population += 150 * (valueMultiplier.populationMultiplier);
+          totalIncome += 5 * (valueMultiplier.propertyValueMultiplier);
         }
         if (grid[i][j].lotType === 'hospital' && grid[i][j].built) {
           totalHospitals++;
@@ -67,14 +67,14 @@ export default class GridClass {
   }
 
 
-  updatePropertyValueMultiplier(row, column) {
+  updatePropertyValueAndPopulationMultiplier(row, column) {
     let numberHospitals = 0;
     let numberSchools = 0;
     let numberResidential = 0;
     let numberCommercial = 0;
     let numberEmpty = 0;
     let propertyValueMultiplier = 1.0;
-
+    let populationMultiplier = 1.0;
 
     if (this.grid[row]) {
       if (this.grid[row][column - 1]) {
@@ -209,13 +209,17 @@ export default class GridClass {
     }
 
     if (numberSchools >= 2) {
-      propertyValueMultiplier += 0.25;
+      propertyValueMultiplier += 0.5;
     } else if (numberSchools === 0) {
       propertyValueMultiplier -= 0.25;
+    } else if (numberSchools === 1) {
+      populationMultiplier += 0.25;
+      propertyValueMultiplier += 0.25;
     }
 
     if (numberHospitals >= 1) {
       propertyValueMultiplier += 0.25;
+      populationMultiplier += 0.5;
     } else if (numberHospitals === 0) {
       propertyValueMultiplier -= 0.25;
     }
@@ -226,8 +230,11 @@ export default class GridClass {
 
     if (numberCommercial >= 4) {
       propertyValueMultiplier -= 0.25;
+    } else if (numberCommercial >= 1) {
+      populationMultiplier += 0.25;
     }
 
+    return { propertyValueMultiplier, populationMultiplier };
   }
 
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import HomePage from './HomePage'
 import Explanation from './Explanation'
@@ -22,7 +22,7 @@ function Routes(props) {
               <Route exact path='/end' component={End} />
             </Switch>
           }
-          <Route component={HomePage} />
+          <Redirect to="/start" />
           />
     </Switch>
       </header>

@@ -83,6 +83,7 @@ export const setLotTypeClassMethod = (row, column, id, type, isUpgrade = false, 
       }
     }
 
+
     let newLotObject = new LotClass(type, null, population, id, row, column, built, monthsToBuild, level);
 
     dispatch(setLotType(row, column, newLotObject, cost, population));

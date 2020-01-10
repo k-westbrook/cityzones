@@ -6,9 +6,11 @@ import { setLotTypeClassMethod } from './Store/game'
 function LotMenu(props) {
 
   function handleClick(evt) {
-    if (evt.target.value !== 'updgrade') {
+    console.log(evt.target.value)
+    if (evt.target.value !== 'upgrade') {
       props.setLotType(props.lot.row, props.lot.column, props.lot.id, evt.target.value)
     } else {
+      console.log(props.lot.lotType, props.lot.lotUpgrade)
       props.setLotType(props.lot.row, props.lot.column, props.lot.id, props.lot.lotType, true, props.lot.lotUpgrade)
 
     }
@@ -42,7 +44,7 @@ function LotMenu(props) {
               {(props.bankTotal >= 50) ?
                 <div>
                   <button onClick={handleClick} value='empty'>Destroy</button>
-                  {(props.lot.lotUpgrade < 4 && props.lot.built && (props.lot.lotType === 'residential' || props.lot.lotType === 'commercial')) &&
+                  {(props.lot.lotUpgrade < 3 && props.lot.built && (props.lot.lotType === 'residential' || props.lot.lotType === 'commercial')) &&
                     <button value='upgrade' onClick={handleClick}>Upgrade</button>
 
                   }
@@ -70,7 +72,7 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    setLotType: (row, column, id, type) => dispatch(setLotTypeClassMethod(row, column, id, type))
+    setLotType: (row, column, id, type, isUpgrade, lotUpgrade) => dispatch(setLotTypeClassMethod(row, column, id, type, isUpgrade, lotUpgrade))
   }
 }
 

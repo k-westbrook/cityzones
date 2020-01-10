@@ -15,17 +15,23 @@ function GameBoard(props) {
   }
   return (
     <div className='gameboard-container'>
-      <div>
+      <div className='gameboard-text-container'>
         <h1 className='gameboard-title'> City of {props.cityName}</h1>
-        <div>
-          <p>
-            Month: {props.month}
-            <br />
-            Bank Account: ${props.bankTotal}
-            <br />
-            Population:{props.population}</p>
+        <div className='gameboard-data-container'>
+          <div className='gameboard-data-title'>
+            <p >
+              City Data</p>
+          </div>
+          <div className='gameboard-data-text'>
+            <p >
+              Month: {props.month}
+              <br />
+              Bank Account: ${props.bankTotal}
+              <br />
+              Population: {props.population}</p>
+          </div>
         </div>
-        <button onClick={handleClick}>Finished Turn</button>
+        <button className='general-button' onClick={handleClick}>Finish Turn</button>
       </div>
       <Grid />
     </div>

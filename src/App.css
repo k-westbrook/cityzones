@@ -187,9 +187,44 @@ margin-bottom: 30px;
   margin-bottom: 40px;
 }
 
+.gameboard-text-container
+{
+margin-top: 20px;
+margin-bottom:10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+
+}
 .gameboard-title
 {
   font-family: 'Press Start 2P', cursive;
   margin-bottom: 40px;
   font-size: 50px;
+}
+
+.gameboard-data-container
+{
+height:150px;
+border-style: solid;
+width: 500px;
+margin-bottom: 30px;
+display: flex;
+justify-content: space-evenly;
+}
+.gameboard-data-text
+{
+  font-size: 25px;
+  width:100%;
+  text-align: justify;
+  padding-left: 20px;
+}
+
+.gameboard-data-title
+{
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+  width:60%;
+
 }

@@ -9,8 +9,10 @@ function Lot(props) {
   return (
     <div className='lot-card'>
       {(lot.built || lot.lotType === 'empty') ?
-
-        <p>{lot.lotType}, {lot.id}</p>
+        <div>
+          <p>{lot.lotType}, {lot.id}</p>
+          <p>{lot.propertyValue}, {lot.propertyValueString}</p>
+        </div>
         :
         <p>Building...{lot.lotType}, {lot.id}</p>
       }

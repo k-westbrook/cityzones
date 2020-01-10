@@ -35,8 +35,13 @@ function LotMenu(props) {
             :
             <div>
               {(props.bankTotal >= 50) ?
-                <button onClick={handleClick} value='empty'>Destroy</button>
+                <div>
+                  <button onClick={handleClick} value='empty'>Destroy</button>
+                  {(props.lot.lotUpgrade < 4 && props.lot.built) &&
+                    <button >Upgrade</button>
 
+                  }
+                </div>
                 :
                 <div>
                   <p>Not Enough Money</p>

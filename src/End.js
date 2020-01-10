@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 
 function End(props) {
-  const { cityName, mayorName, bankTotal, population } = props;
+  const { cityName, mayorName, bankTotal, population, overallPropertyValue } = props;
 
   const accomplishedIncome = bankTotal > 5000 ? 'yes' : 'no';
   const accomplishedPopulation = population > 1500 ? 'yes' : 'no';
@@ -20,6 +20,7 @@ function End(props) {
       <h2>Year 3 End</h2>
       <p>Bank Account: {bankTotal}<br />
         Population: {population}<br />
+        Overall Property Value {overallPropertyValue} <br />
         Did you finish your income goals? {accomplishedIncome}
         <br />
         Did you finsih your population goals? {accomplishedPopulation}</p>
@@ -45,7 +46,8 @@ const mapState = (state) => {
     bankTotal: state.game.bankTotal,
     population: state.game.population,
     month: state.game.month,
-    grid: state.game.grid
+    grid: state.game.grid,
+    overallPropertyValue: state.game.overallPropertyValue
 
   }
 }

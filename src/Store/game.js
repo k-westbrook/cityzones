@@ -71,7 +71,7 @@ export const setLotTypeClassMethod = (row, column, id, type) => async dispatch =
       monthsToBuild = 4;
     }
 
-    let newLotObject = new LotClass(type, 1, population, id, row, column, built, monthsToBuild);
+    let newLotObject = new LotClass(type, null, population, id, row, column, built, monthsToBuild);
 
     dispatch(setLotType(row, column, newLotObject, cost, population));
 
@@ -86,9 +86,6 @@ export const finishTurnClassMethod = (grid) => async dispatch => {
 
   try {
     let turnDataObject = grid.finishTurn();
-
-
-
     dispatch(finishTurn(turnDataObject.grid, turnDataObject.totalIncome, turnDataObject.totalHospitals, turnDataObject.totalSchools, turnDataObject.population, turnDataObject.overallPropertyValue))
 
   } catch (err) {

@@ -23,17 +23,17 @@ function LotMenu(props) {
           {(props.lot.lotType === 'empty') ?
             <div className='build-lot-menu'>
               {(props.bankTotal >= 50) &&
-                <button onClick={handleClick} value='residential' >Residential</button>
+                <button className='dropdown-lot-menu-button' onClick={handleClick} value='residential' >Residential</button>
               }
               {(props.bankTotal >= 100) &&
-                <button onClick={handleClick}
+                <button className='dropdown-lot-menu-button' onClick={handleClick}
                   value='commercial'>Commercial</button>
               }
               {(props.bankTotal >= 250) &&
-                <button onClick={handleClick} value='hospital'>Hospital</button>
+                <button className='dropdown-lot-menu-button' onClick={handleClick} value='hospital'>Hospital</button>
               }
               {(props.bankTotal >= 150) &&
-                <button onClick={handleClick} value='school'>School</button>
+                <button onClick={handleClick} className='dropdown-lot-menu-button' value='school'>School</button>
               }
               {(props.bankTotal < 50) &&
                 <p>Not Enough Money</p>

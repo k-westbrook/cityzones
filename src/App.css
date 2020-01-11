@@ -248,12 +248,27 @@ justify-content: space-evenly;
 {
   position: absolute;
   display: none;
-  background-color: aliceblue;
-  color:blueviolet;
-  min-width: 90px;
+  width: 130px;
 }
+
 
 .lot-card:hover .dropdown-lot-menu
 {
 display: flex;
+z-index: 1;
+}
+
+.dropdown-lot-menu-button
+{
+  height:30px;
+  width: 100%;
+  font-size: 20px;
+  background-color: whitesmoke;
+}
+.dropdown-lot-menu-button:hover
+{
+  height:35px;
+  width: 100%;
+  font-size: 25px;
+  background-color: whitesmoke;
 }

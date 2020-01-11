@@ -231,6 +231,7 @@ justify-content: space-evenly;
   border-style: double;
   padding:5px;
   font-size: 10px;
+  background-size: contain;
 }
 
 .dropdown-lot-menu

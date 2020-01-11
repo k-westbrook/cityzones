@@ -68,7 +68,8 @@ export default class GridClass {
 
         }
         if (grid[i][j].lotType === 'school' && grid[i][j].built) {
-          grid[i][j] = "https://res.cloudinary.com/dmp2crnzz/image/upload/v1578638303/cityzones/school.png";
+          grid[i][j].imageUrl = "https://res.cloudinary.com/dmp2crnzz/image/upload/v1578638303/cityzones/school.png";
+
           totalSchools++;
 
         }

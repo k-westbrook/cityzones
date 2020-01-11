@@ -235,7 +235,8 @@ margin-right:30px;
   border-style: double;
   padding:5px;
   font-size: 10px;
-  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 110px 110px;
 }
 .lot-card-data
 {

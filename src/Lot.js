@@ -9,16 +9,6 @@ function Lot(props) {
   const { lot } = props;
   return (
     <div className='lot-card' style={{ backgroundImage: `url("${lot.imageUrl}")` }}>
-      {(lot.built || lot.lotType === 'empty') ?
-        <div>
-          <p>{lot.lotType}, {lot.id}</p>
-          <p>{lot.propertyValue}, {lot.propertyValueString}</p>
-          <p>LEVEL:{lot.lotUpgrade}</p>
-        </div>
-        :
-        <p>Building...{lot.lotType}, {lot.id}, {lot.monthsToBuild} ,{lot.built} </p>
-      }
-
       <LotMenu lot={lot} built={lot.built} />
     </div >
   )

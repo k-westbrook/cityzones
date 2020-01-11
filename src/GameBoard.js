@@ -16,7 +16,9 @@ function GameBoard(props) {
   return (
     <div className='gameboard-container'>
       <div className='gameboard-text-container'>
-        <h1 className='gameboard-title'> City of {props.cityName}</h1>
+        <div className='gameboard-title'>
+          <h1 > City of {props.cityName}</h1>
+        </div>
         <div className='gameboard-data-container'>
           <div className='gameboard-data-title'>
             <p >
@@ -31,7 +33,9 @@ function GameBoard(props) {
               Population: {props.population}</p>
           </div>
         </div>
-        <button className='general-button' onClick={handleClick}>Finish Turn</button>
+        <div className='gameboard-finish-turn-button-container'>
+          <button className='general-button' onClick={handleClick}>Finish Turn</button>
+        </div>
       </div>
       <Grid />
     </div>

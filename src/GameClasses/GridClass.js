@@ -17,7 +17,7 @@ export default class GridClass {
 
     for (let i = 0; i < 6; i++) {
       row = [];
-      for (let j = 0; j < 5; j++) {
+      for (let j = 0; j < 10; j++) {
         newLotObject = new LotClass();
         newLotObject.id = idCount;
         newLotObject.row = i;

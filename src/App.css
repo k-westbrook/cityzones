@@ -248,27 +248,40 @@ justify-content: space-evenly;
 {
   position: absolute;
   display: none;
-  width: 130px;
+  width: 150px;
+  background-color: whitesmoke;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 
 .lot-card:hover .dropdown-lot-menu
 {
 display: flex;
+justify-content: center;
 z-index: 1;
 }
 
 .dropdown-lot-menu-button
 {
   height:30px;
-  width: 100%;
+  width: 150px;
   font-size: 20px;
   background-color: whitesmoke;
 }
 .dropdown-lot-menu-button:hover
 {
   height:35px;
-  width: 100%;
+  width: 150px;
   font-size: 25px;
   background-color: whitesmoke;
+}
+
+.dropdown-lot-menu-data
+{
+  color:black;
+  font-size: 20px;
+  text-align: start;
+  padding:5px;
+  word-wrap: wrap w;
+
 }

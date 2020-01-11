@@ -39,7 +39,7 @@ export default class GridClass {
     let propertyCount = 0;
 
     for (let i = 0; i < 6; i++) {
-      for (let j = 0; j < 5; j++) {
+      for (let j = 0; j < 10; j++) {
         if (grid[i][j].monthsToBuild > 0) {
           grid[i][j].monthsToBuild -= 1;
           if (grid[i][j].monthsToBuild === 0) {

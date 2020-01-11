@@ -5,7 +5,7 @@ import LotMenu from './LotMenu';
 
 
 function Lot(props) {
-  console.log(props.lot.imageUrl)
+
   const { lot } = props;
   return (
     <div className='lot-card' style={{ backgroundImage: `url("${lot.imageUrl}")` }}>

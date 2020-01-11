@@ -47,6 +47,14 @@ export default class GridClass {
           }
         }
         if (grid[i][j].lotType === 'residential' && grid[i][j].built) {
+          if (grid[i][j].lotUpgrade === 1) {
+            grid[i][j].imageUrl = "https://res.cloudinary.com/dmp2crnzz/image/upload/v1578637937/cityzones/house1.png";
+          } else if (grid[i][j].lotUpgrade === 2) {
+            grid[i][j].imageUrl = "https://res.cloudinary.com/dmp2crnzz/image/upload/v1578637938/cityzones/house2.png";
+          } else {
+            grid[i][j].imageUrl = "https://res.cloudinary.com/dmp2crnzz/image/upload/v1578637936/cityzones/house3.jpg";
+          }
+
           let valueMultiplier = this.updatePropertyValueAndPopulationMultiplier(i, j);
           population += 150 * (valueMultiplier.populationMultiplier);
           totalIncome += 5 * (valueMultiplier.propertyValueMultiplier);
@@ -55,14 +63,23 @@ export default class GridClass {
           grid[i][j].propertyValue = valueMultiplier.propertyValueMultiplier;
         }
         if (grid[i][j].lotType === 'hospital' && grid[i][j].built) {
+          grid[i][j].imageUrl = "https://res.cloudinary.com/dmp2crnzz/image/upload/v1578638219/cityzones/hospital.png";
           totalHospitals++;
 
         }
         if (grid[i][j].lotType === 'school' && grid[i][j].built) {
+          grid[i][j] = "https://res.cloudinary.com/dmp2crnzz/image/upload/v1578638303/cityzones/school.png";
           totalSchools++;
 
         }
         if (grid[i][j].lotType === 'commercial' && grid[i][j].built) {
+          if (grid[i][j].lotUpgrade === 1) {
+            grid[i][j].imageUrl = "https://res.cloudinary.com/dmp2crnzz/image/upload/v1578637935/cityzones/commercial1.jpg";
+          } else if (grid[i][j].lotUpgrade === 2) {
+            grid[i][j].imageUrl = "https://res.cloudinary.com/dmp2crnzz/image/upload/v1578637941/cityzones/commercial2.png";
+          } else {
+            grid[i][j].imageUrl = "https://res.cloudinary.com/dmp2crnzz/image/upload/v1578637940/cityzones/commercial3.png";
+          }
           let smartBusinessValue = 1.0;
           if (grid.numberSchools >= 10) {
             smartBusinessValue = 3.0;

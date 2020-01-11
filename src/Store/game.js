@@ -87,6 +87,10 @@ export const setLotTypeClassMethod = (row, column, id, type, isUpgrade = false, 
 
     let newLotObject = new LotClass(type, null, population, id, row, column, built, monthsToBuild, level);
 
+    if (monthsToBuild > 0) {
+      newLotObject.imageUrl = "https://res.cloudinary.com/dmp2crnzz/image/upload/v1578637937/cityzones/building.jpg";
+    }
+
     dispatch(setLotType(row, column, newLotObject, cost, population));
 
   } catch (err) {

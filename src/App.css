@@ -1,7 +1,8 @@
 .App {
   text-align: center;
-  width: 100vw;
   font-family: 'Roboto', sans-serif;
+  background-color: #010d24;
+  overflow: auto;
 }
 
 .App-logo {
@@ -38,6 +39,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 40px;
 }
 
 .homepage-opening-container
@@ -172,11 +174,12 @@ height:200px;
 .gameboard-title
 {
   font-family: 'Press Start 2P', cursive;
+  font-size: 20px;
   width: 500px;
   margin-left: 0px;
   display: flex;
   text-align: center;
-
+  margin-right:30px;
 }
 
 .gameboard-data-container
@@ -186,11 +189,12 @@ border-style: solid;
 width: 500px;
 display: flex;
 justify-content: space-evenly;
+margin-right:30px;
 }
 .gameboard-data-text
 {
   font-size: 25px;
-  width:100%;
+  width:300px;
   text-align: justify;
   padding-left: 20px;
 }
@@ -200,7 +204,7 @@ justify-content: space-evenly;
   font-size: 35px;
   display: flex;
   justify-content: center;
-  width:60%;
+  width:200px;
 
 }
 .gameboard-finish-turn-button-container

@@ -5,9 +5,10 @@ import LotMenu from './LotMenu';
 
 
 function Lot(props) {
+  console.log(props.lot.imageUrl)
   const { lot } = props;
   return (
-    <div className='lot-card'>
+    <div className='lot-card' style={{ backgroundImage: `url("${lot.imageUrl}")` }}>
       {(lot.built || lot.lotType === 'empty') ?
         <div>
           <p>{lot.lotType}, {lot.id}</p>
@@ -19,7 +20,7 @@ function Lot(props) {
       }
 
       <LotMenu lot={lot} built={lot.built} />
-    </div>
+    </div >
   )
 }
 

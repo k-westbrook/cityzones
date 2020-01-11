@@ -10,7 +10,7 @@ function Grid(props) {
   const { grid } = props.grid;
   let count = -1;
   return (
-    <div>
+    <div className='grid-container'>
       {grid.map(row => {
         count++;
         return (

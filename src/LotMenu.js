@@ -35,7 +35,9 @@ function LotMenu(props) {
                 <button onClick={handleClick} className='dropdown-lot-menu-button' value='school'>School</button>
               }
               {(props.bankTotal < 50) &&
-                <p>Not Enough Money</p>
+                <div className='dropdown-lot-menu-data'>
+                  <p>Not Enough Money</p>
+                </div>
               }
             </div>
             :
@@ -56,7 +58,7 @@ function LotMenu(props) {
                   }
                 </div>
                 :
-                <div>
+                <div className='dropdown-lot-menu-data'>
                   <p>Not Enough Money</p>
                 </div>
               }

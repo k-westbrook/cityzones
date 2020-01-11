@@ -21,7 +21,7 @@ function End(props) {
         <h2 className='end-header'>Year 3 End</h2>
         <p className='end-data'>Bank Account: {bankTotal}<br />
           Population: {population}<br />
-          Overall Property Value {overallPropertyValue} <br />
+          Overall Property Value: {Math.round(overallPropertyValue * 100) / 100} <br />
           Did you finish your income goals? {accomplishedIncome}
           <br />
           Did you finsih your population goals? {accomplishedPopulation}</p>

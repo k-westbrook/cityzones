@@ -41,7 +41,7 @@ function LotMenu(props) {
             :
             <div>
               <div className='dropdown-lot-menu-data'>
-                <p> Type: {props.lot.lotType}
+                <p> Type:   {props.lot.lotType}
                   <br />
                   Value: {props.lot.propertyValueString}
 

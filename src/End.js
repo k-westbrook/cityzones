@@ -16,20 +16,22 @@ function End(props) {
   }
 
   return (
-    <div>
-      <h2>Year 3 End</h2>
-      <p>Bank Account: {bankTotal}<br />
-        Population: {population}<br />
-        Overall Property Value {overallPropertyValue} <br />
-        Did you finish your income goals? {accomplishedIncome}
-        <br />
-        Did you finsih your population goals? {accomplishedPopulation}</p>
+    <div className='end-container'>
+      <div className='end-info'>
+        <h2 className='end-header'>Year 3 End</h2>
+        <p className='end-data'>Bank Account: {bankTotal}<br />
+          Population: {population}<br />
+          Overall Property Value {overallPropertyValue} <br />
+          Did you finish your income goals? {accomplishedIncome}
+          <br />
+          Did you finsih your population goals? {accomplishedPopulation}</p>
+      </div>
       {won ?
-        <div>
+        <div className='end-won'>
           <p>Congrats! You won!</p>
         </div>
         :
-        <div>
+        <div className='end-won'>
           <p>Try again, {mayorName}! {cityName} has great promise!</p>
         </div>
 
